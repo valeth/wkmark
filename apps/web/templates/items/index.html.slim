@@ -1,0 +1,15 @@
+main.item-content
+  = form_for :item, '/items', class: 'item-form' do
+    = label 'Add Item', for: :character
+    = text_field :character, class: 'item-input-field', autofocus: true, autocomplete: :off
+    = submit 'Create'
+
+  - if items.any?
+    h2 Study Items
+    ul#items.items
+      - items.each do |item|
+        li.item
+          span.character= item.character
+          span.type= item.type
+          = form_for(:item, routes.path(:item, id: item.id), method: :delete) do
+            = submit 'Delete', class: 'btn-delete-item'

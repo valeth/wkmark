@@ -1,0 +1,59 @@
+@import 'kazekura';
+
+:root {
+  color: $text-color;
+}
+
+body {
+  margin: 0;
+}
+
+.item-content {
+  align-items: center;
+  background-color: $charcoal-grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  min-height: 100vh;
+}
+
+.item-form {
+  margin: 3rem 0;
+
+  .item-input-field {
+    @include input;
+  }
+
+  button {
+    @include button;
+  }
+}
+
+.items {
+  @include section;
+  @include list;
+
+  width: 50vw;
+
+  .item {
+    background-color: transparent;
+    padding: {
+      bottom: 0.3em;
+      top: 0.3em;
+    }
+  }
+
+  .character {
+    margin-left: 1em;
+  }
+
+  .btn-delete-item {
+    background: none;
+    border: 0;
+
+    &:hover {
+      color: $danger-red;
+    }
+  }
+}
+
