@@ -1,15 +1,13 @@
 main.item-content
-  = form_for :item, '/items', class: 'item-form' do
-    = label 'Add Item', for: :character
-    = text_field :character, class: 'item-input-field', autofocus: true, autocomplete: :off
-    = submit 'Create'
+  = item_add_form
 
   - if items.any?
     h2 Study Items
+
     ul#items.items
       - items.each do |item|
         li.item
-          span.character= item.character
+          = link_to(reading(item), routes.edit_item_path(id: item.id), class: 'reading item-link')
+          = link_to(item.meaning, routes.edit_item_path(id: item.id), class: 'meaning item-link')
           span.type= item.type
-          = form_for(:item, routes.path(:item, id: item.id), method: :delete) do
-            = submit 'Delete', class: 'btn-delete-item'
+          = item_form(item)

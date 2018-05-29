@@ -18,41 +18,64 @@ $icon-blue:        rgb(29, 153, 243);  // #1d99f3
 $text-color: darken($paper-white, 25%);
 $shadow-color: rgba(0, 0, 0, 0.7);
 
-$ui-shadow: 1px 1px 1px $shadow-color, 2px 2px 2px $shadow-color;
-
+$ui-shadow-out: 1px 1px 1px $shadow-color,
+                2px 2px 2px $shadow-color,
+                0 0 2px $shadow-color,
+                0 0 3px $shadow-color;
+$ui-shadow-in: 1px 1px 1px $shadow-color inset,
+               2px 2px 2px $shadow-color inset,
+               0 0 2px $shadow-color inset;
+$ui-border-radius: 0.3rem;
 
 %ui-input-element {
-  background-color: darken($shade-black, 2%);
   border: {
-    radius: 0.3rem;
+    radius: $ui-border-radius;
     width: 0;
   }
-  box-shadow: $ui-shadow;
   color: $text-color;
   padding: 0.3rem 0.6rem;
   transition: background-color 0.2s linear;
 
   &:hover {
-    background-color: lighten($shade-black, 2%);
+    background-color: lighten($shade-black, 3%);
   }
+}
+
+%ui-input-text {
+  @extend %ui-input-element;
+  background-color: darken($shade-black, 2.5%);
+  box-shadow: $ui-shadow-in;
+}
+
+%ui-input-click {
+  @extend %ui-input-element;
+  background-color: darken($shade-black, 2%);
+  box-shadow: $ui-shadow-out;
+  box-sizing: border-box;
+  display: flex;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  justify-content: center;
+  line-height: normal;
+  text-decoration: none;
 }
 
 %ui-section {
   background-color: $shade-black;
   border: {
-    radius: 0.3rem;
+    radius: $ui-border-radius;
     width: 0;
   }
-  box-shadow: $ui-shadow;
+  box-shadow: $ui-shadow-out;
 }
 
 
 @mixin button {
-  @extend %ui-input-element;
+  @extend %ui-input-click;
 }
 
 @mixin input {
-  @extend %ui-input-element;
+  @extend %ui-input-text;
 
   &:focus {
     background-color: lighten($shade-black, 2%);

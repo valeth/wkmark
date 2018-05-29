@@ -3,5 +3,5 @@
 #
 
 root to: 'items#index'
-post '/items', to: 'items#create'
-delete '/items/:id', to: 'items#destroy', as: :item
+
+resources :items, only: %i[index edit create destroy update]

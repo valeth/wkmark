@@ -1,0 +1,9 @@
+main.item-content
+  h1
+    ruby
+      = item.character
+      rt= item.reading
+
+  .item-edit
+    = item_form(item)
+    = link_to('Cancel', routes.path(:root), class: 'btn btn-cancel')

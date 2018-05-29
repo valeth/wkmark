@@ -1,26 +1,23 @@
 @import 'kazekura';
 
-:root {
-  color: $text-color;
-}
-
-body {
-  margin: 0;
-}
-
 .item-content {
   align-items: center;
-  background-color: $charcoal-grey;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  min-height: 100vh;
 }
 
 .item-form {
   margin: 3rem 0;
 
-  .item-input-field {
+  button {
+    display: inline-block;
+  }
+}
+
+.item-edit-form,
+.item-form {
+  input[type="text"] {
     @include input;
   }
 
@@ -29,22 +26,63 @@ body {
   }
 }
 
+.item-edit-form {
+  display: flex;
+  flex-direction: column;
+
+  input[type="text"] {
+    margin-bottom: 1rem;
+  }
+
+  button[type="submit"] {
+    margin-top: 2rem;
+  }
+}
+
+.btn {
+  @include button;
+  margin-top: 1rem;
+}
+
 .items {
   @include section;
   @include list;
 
-  width: 50vw;
+  width: 80vw;
 
   .item {
-    background-color: transparent;
-    padding: {
-      bottom: 0.3em;
-      top: 0.3em;
+    display: grid;
+    grid: {
+      column-gap: 0.5em;
+      template: {
+        areas: 'reading meaning type buttons';
+        columns: 1fr 1fr auto auto;
+      }
     }
+    background-color: transparent;
+    padding: 0.3em;
   }
 
-  .character {
-    margin-left: 1em;
+  .item-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .reading {
+    grid-area: reading;
+  }
+
+  .meaning {
+    grid-area: meaning;
+  }
+
+  .type {
+    grid-area: type;
+  }
+
+  .item-buttons {
+    grid-area: buttons;
+    justify-self: end;
   }
 
   .btn-delete-item {

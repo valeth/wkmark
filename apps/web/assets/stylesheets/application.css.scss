@@ -1,0 +1,14 @@
+@import 'kazekura';
+
+:root {
+  color: $text-color;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  background-color: $charcoal-grey;
+  min-height: 100vh;
+}
