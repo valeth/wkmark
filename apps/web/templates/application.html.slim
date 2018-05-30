@@ -3,7 +3,12 @@ html
   head
     title Item Collector
     = favicon
+    = stylesheet 'https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css'
     = stylesheet 'application', 'items'
+    = javascript('https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js',
+                 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js',
+                 'https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js',
+                 'application')
 
     meta {
       http-equiv="Content-Type"

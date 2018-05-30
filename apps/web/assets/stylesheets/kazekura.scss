@@ -18,6 +18,7 @@ $icon-blue:        rgb(29, 153, 243);  // #1d99f3
 $text-color: darken($paper-white, 25%);
 $shadow-color: rgba(0, 0, 0, 0.7);
 
+$ui-separator-color: darken($charcoal-grey, 3%);
 $ui-shadow-out: 1px 1px 1px $shadow-color,
                 2px 2px 2px $shadow-color,
                 0 0 2px $shadow-color,
@@ -60,6 +61,36 @@ $ui-border-radius: 0.3rem;
   text-decoration: none;
 }
 
+%ui-modal {
+  background-color: $charcoal-grey;
+  border: {
+    radius: $ui-border-radius;
+    width: 0;
+  }
+  color: $text-color;
+  padding: 0.3rem 0.6rem;
+
+  > .header,
+  > .content,
+  > .actions {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  > .header {
+    border-bottom-color: $ui-separator-color;
+  }
+
+  > .actions {
+    border-top-color: $ui-separator-color;
+  }
+
+  .button {
+    @extend %ui-input-click;
+    display: inline-block;
+  }
+}
+
 %ui-section {
   background-color: $shade-black;
   border: {
@@ -93,11 +124,15 @@ $ui-border-radius: 0.3rem;
     list-style-type: none;
 
     &:not(:last-child) {
-      border-bottom: 1px solid darken($charcoal-grey, 3%);
+      border-bottom: 1px solid $ui-separator-color;
     }
   }
 }
 
 @mixin section {
   @extend %ui-section;
+}
+
+@mixin modal {
+  @extend %ui-modal;
 }

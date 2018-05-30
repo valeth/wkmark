@@ -39,6 +39,10 @@
   }
 }
 
+.item-edit-modal.ui.modal {
+  @include modal;
+}
+
 .btn {
   @include button;
   margin-top: 1rem;

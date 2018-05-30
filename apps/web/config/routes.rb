@@ -4,4 +4,4 @@
 
 root to: 'items#index'
 
-resources :items, only: %i[index edit create destroy update]
+resources :items, only: %i[index create destroy update]
