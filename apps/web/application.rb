@@ -156,7 +156,9 @@ module Web
         # Specify sources for assets
         #
         sources << [
-          'assets'
+          'assets/stylesheets',
+          'assets/images',
+          'assets/favicon.ico'
         ]
       end
 
@@ -238,7 +240,7 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' 'unsafe-eval' https:;
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' https:;
         connect-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;

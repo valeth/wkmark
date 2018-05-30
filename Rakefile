@@ -7,3 +7,14 @@ begin
   task default: :spec
 rescue LoadError
 end
+
+task :webpack do
+  cd 'apps/web'
+  sh 'yarn run webpack --watch'
+end
+
+task :server do
+  sh 'bin/hanami server'
+end
+
+multitask :run => [:server, :webpack]
