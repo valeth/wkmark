@@ -5,7 +5,7 @@ import ListItem from "./components/ListItem.vue";
 import ItemEditModal from "./components/ItemEditModal.vue";
 
 $(document).ready(function() {
-  const app = new Vue({
+  window.app = new Vue({
     el: "#app",
 
     data: {
@@ -46,7 +46,7 @@ $(document).on("click", "#item-submit", function(event) {
       }
     },
     success: (res) => {
-      Vue.set(window.vm, "items", res);
+      Vue.set(window.app, "items", res);
       character.val(null);
     }
   });
